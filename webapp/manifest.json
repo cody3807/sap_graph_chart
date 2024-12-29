@@ -1,0 +1,147 @@
+{
+  "_version": "1.48.0",
+  "sap.app": {
+    "id": "aemmanagement.project1",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.15.3",
+      "toolsId": "04e7bdde-e102-4f78-b064-3405878edf81"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/Z00SAP_TEST_FOR_UI5/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "Z00SAP_TEST_FOR_UI5_VAN"
+          ],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "Z00SAP_TEST_FOR_UI5_VAN": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='Z00SAP_TEST_FOR_UI5_VAN',Version='0001')/$value/",
+        "type": "ODataAnnotation",
+        "settings": {
+          "localUri": "localService/Z00SAP_TEST_FOR_UI5_VAN.xml"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.108.33",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.suite.ui.commons": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "aemmanagement.project1.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "aemmanagement.project1.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteProject_Overview",
+          "pattern": ":?query:",
+          "target": [
+            "TargetProject_Overview"
+          ]
+        },
+        {
+          "name": "RouteProjectDetails",
+          "pattern": "ProjectDetails/{Projectid}/{Version}",
+          "target": "TargetProjectDetails"
+      },
+      {
+        "name": "RouteTaskDetails",
+        "pattern": "TaskDetails/{Projectid}/{Version}/{TaskName}",
+        "target": "TargetTaskDetails"
+    }
+      ],
+      "targets": {
+        "TargetProject_Overview": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Project_Overview",
+          "viewName": "Project_Overview"
+        },
+        "TargetProjectDetails": {
+            "viewName": "pro_det",
+            "viewType": "XML",
+            "viewId": "pro_det",
+            "transition": "slide"
+        },
+        "TargetTaskDetails": {
+        "viewName": "TaskDetails",
+        "viewType": "XML",
+        "viewId": "TaskDetails",
+        "transition": "slide"
+    }
+      }
+    },
+    "rootView": {
+      "viewName": "aemmanagement.project1.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

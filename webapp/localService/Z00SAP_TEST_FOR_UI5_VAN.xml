@@ -1,0 +1,851 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../../sap/z00sap_test_for_ui5/$metadata">
+        <edmx:Include Namespace="Z00SAP_TEST_FOR_UI5" Alias="SAP"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="z00sap_test_for_ui5_van.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_z00sap_servdef.I_DraftAdministrativeDataType/DraftUUID">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.I_DraftAdministrativeDataType/DraftEntityType">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.I_DraftAdministrativeDataType/DraftAccessType">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.I_DraftAdministrativeDataType/ProcessingStartDateTime">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.I_DraftAdministrativeDataType/InProcessByUser">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.I_DraftAdministrativeDataType/DraftIsKeptByUser">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.I_DraftAdministrativeDataType/EnqueueStartDateTime">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.I_DraftAdministrativeDataType/DraftIsCreatedByMe">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.I_DraftAdministrativeDataType/DraftIsLastChangedByMe">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.I_DraftAdministrativeDataType/DraftIsProcessedByMe">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.I_DraftAdministrativeDataType/CreatedByUserDescription">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.I_DraftAdministrativeDataType/LastChangedByUserDescription">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.I_DraftAdministrativeDataType/InProcessByUserDescription">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_CType/SapVersion">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_CType/Delete_mc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_CType/Update_mc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_CType">
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="HeaderFacet"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Fieldgroup:HeaderItems"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="Fieldgroup:HeaderItems">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Projectid"/>
+                                    <PropertyValue Property="Value" Path="Projectid"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Version"/>
+                                    <PropertyValue Property="Value" Path="Version"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="SapVersion"/>
+                                    <PropertyValue Property="Value" Path="SapVersion"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Author"/>
+                                    <PropertyValue Property="Value" Path="Author"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="LastChanged"/>
+                                    <PropertyValue Property="Value" Path="LastChanged"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="ProjectName"/>
+                                    <PropertyValue Property="Value" Path="ProjectName"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="CreatedBy"/>
+                                    <PropertyValue Property="Value" Path="CreatedBy"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="CreatedAt"/>
+                                    <PropertyValue Property="Value" Path="CreatedAt"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="LocalLastChangedBy"/>
+                                    <PropertyValue Property="Value" Path="LocalLastChangedBy"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="LocalLastChangedAt"/>
+                                    <PropertyValue Property="Value" Path="LocalLastChangedAt"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="LastChangedAt"/>
+                                    <PropertyValue Property="Value" Path="LastChangedAt"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Tierid"/>
+                                    <PropertyValue Property="Value" Path="Tierid"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="TierLevel"/>
+                                    <PropertyValue Property="Value" Path="TierLevel"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="TL_Projectid"/>
+                                    <PropertyValue Property="Value" Path="TL_Projectid"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="TL_Version"/>
+                                    <PropertyValue Property="Value" Path="TL_Version"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="ES_Id"/>
+                                    <PropertyValue Property="Value" Path="ES_Id"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="ES_Tierid"/>
+                                    <PropertyValue Property="Value" Path="ES_Tierid"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="StyleName"/>
+                                    <PropertyValue Property="Value" Path="StyleName"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="ET_Id"/>
+                                    <PropertyValue Property="Value" Path="ET_Id"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="ET_ES_Id"/>
+                                    <PropertyValue Property="Value" Path="ET_ES_Id"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="TaskName"/>
+                                    <PropertyValue Property="Value" Path="TaskName"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="tbbid"/>
+                                    <PropertyValue Property="Value" Path="tbbid"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="tbbetid"/>
+                                    <PropertyValue Property="Value" Path="tbbetid"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="tbbname"/>
+                                    <PropertyValue Property="Value" Path="tbbname"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="ProjectDetail"/>
+                        <PropertyValue Property="TypeNamePlural" String="ProjectDetails"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataFieldWithNavigationPath">
+                                <PropertyValue Property="Label" String="ProjectDetails"/>
+                                <PropertyValue Property="Value" Path="ProjectName"/>
+                                <PropertyValue Property="Target" String="">
+                                    <Annotation Term="Core.Messages">
+                                        <Collection>
+                                            <Record>
+                                                <PropertyValue Property="message" String="ERROR: Invalid Path"/>
+                                                <PropertyValue Property="severity" String="error"/>
+                                            </Record>
+                                        </Collection>
+                                    </Annotation>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Projectid"/>
+                            <PropertyValue Property="Value" Path="Projectid"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Version"/>
+                            <PropertyValue Property="Value" Path="Version"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="SapVersion"/>
+                            <PropertyValue Property="Value" Path="SapVersion"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Author"/>
+                            <PropertyValue Property="Value" Path="Author"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="LastChanged"/>
+                            <PropertyValue Property="Value" Path="LastChanged"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="ProjectName"/>
+                            <PropertyValue Property="Value" Path="ProjectName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="CreatedBy"/>
+                            <PropertyValue Property="Value" Path="CreatedBy"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="CreatedAt"/>
+                            <PropertyValue Property="Value" Path="CreatedAt"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="LocalLastChangedBy"/>
+                            <PropertyValue Property="Value" Path="LocalLastChangedBy"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="LocalLastChangedAt"/>
+                            <PropertyValue Property="Value" Path="LocalLastChangedAt"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="LastChangedAt"/>
+                            <PropertyValue Property="Value" Path="LastChangedAt"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Tierid"/>
+                            <PropertyValue Property="Value" Path="Tierid"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="TierLevel"/>
+                            <PropertyValue Property="Value" Path="TierLevel"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="TL_Projectid"/>
+                            <PropertyValue Property="Value" Path="TL_Projectid"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="TL_Version"/>
+                            <PropertyValue Property="Value" Path="TL_Version"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="ES_Id"/>
+                            <PropertyValue Property="Value" Path="ES_Id"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="ES_Tierid"/>
+                            <PropertyValue Property="Value" Path="ES_Tierid"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="StyleName"/>
+                            <PropertyValue Property="Value" Path="StyleName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="ET_Id"/>
+                            <PropertyValue Property="Value" Path="ET_Id"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="ET_ES_Id"/>
+                            <PropertyValue Property="Value" Path="ET_ES_Id"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="TaskName"/>
+                            <PropertyValue Property="Value" Path="TaskName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="tbbid"/>
+                            <PropertyValue Property="Value" Path="tbbid"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="tbbetid"/>
+                            <PropertyValue Property="Value" Path="tbbetid"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="tbbname"/>
+                            <PropertyValue Property="Value" Path="tbbname"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Projectid"/>
+                            <PropertyValue Property="Value" Path="Projectid"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Version"/>
+                            <PropertyValue Property="Value" Path="Version"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="SapVersion"/>
+                            <PropertyValue Property="Value" Path="SapVersion"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Author"/>
+                            <PropertyValue Property="Value" Path="Author"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="LastChanged"/>
+                            <PropertyValue Property="Value" Path="LastChanged"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="ProjectName"/>
+                            <PropertyValue Property="Value" Path="ProjectName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="CreatedBy"/>
+                            <PropertyValue Property="Value" Path="CreatedBy"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="CreatedAt"/>
+                            <PropertyValue Property="Value" Path="CreatedAt"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="LocalLastChangedBy"/>
+                            <PropertyValue Property="Value" Path="LocalLastChangedBy"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="LocalLastChangedAt"/>
+                            <PropertyValue Property="Value" Path="LocalLastChangedAt"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="LastChangedAt"/>
+                            <PropertyValue Property="Value" Path="LastChangedAt"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Tierid"/>
+                            <PropertyValue Property="Value" Path="Tierid"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="TierLevel"/>
+                            <PropertyValue Property="Value" Path="TierLevel"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="TL_Projectid"/>
+                            <PropertyValue Property="Value" Path="TL_Projectid"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="TL_Version"/>
+                            <PropertyValue Property="Value" Path="TL_Version"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="ES_Id"/>
+                            <PropertyValue Property="Value" Path="ES_Id"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="ES_Tierid"/>
+                            <PropertyValue Property="Value" Path="ES_Tierid"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="StyleName"/>
+                            <PropertyValue Property="Value" Path="StyleName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="ET_Id"/>
+                            <PropertyValue Property="Value" Path="ET_Id"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="ET_ES_Id"/>
+                            <PropertyValue Property="Value" Path="ET_ES_Id"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="TaskName"/>
+                            <PropertyValue Property="Value" Path="TaskName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="tbbid"/>
+                            <PropertyValue Property="Value" Path="tbbid"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="tbbetid"/>
+                            <PropertyValue Property="Value" Path="tbbetid"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="tbbname"/>
+                            <PropertyValue Property="Value" Path="tbbname"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Projectid</PropertyPath>
+                        <PropertyPath>Version</PropertyPath>
+                        <PropertyPath>SapVersion</PropertyPath>
+                        <PropertyPath>Author</PropertyPath>
+                        <PropertyPath>LastChanged</PropertyPath>
+                        <PropertyPath>ProjectName</PropertyPath>
+                        <PropertyPath>CreatedBy</PropertyPath>
+                        <PropertyPath>CreatedAt</PropertyPath>
+                        <PropertyPath>LocalLastChangedBy</PropertyPath>
+                        <PropertyPath>LocalLastChangedAt</PropertyPath>
+                        <PropertyPath>LastChangedAt</PropertyPath>
+                        <PropertyPath>Tierid</PropertyPath>
+                        <PropertyPath>TierLevel</PropertyPath>
+                        <PropertyPath>TL_Projectid</PropertyPath>
+                        <PropertyPath>TL_Version</PropertyPath>
+                        <PropertyPath>ES_Id</PropertyPath>
+                        <PropertyPath>ES_Tierid</PropertyPath>
+                        <PropertyPath>StyleName</PropertyPath>
+                        <PropertyPath>ET_Id</PropertyPath>
+                        <PropertyPath>ET_ES_Id</PropertyPath>
+                        <PropertyPath>TaskName</PropertyPath>
+                        <PropertyPath>tbbid</PropertyPath>
+                        <PropertyPath>tbbetid</PropertyPath>
+                        <PropertyPath>tbbname</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/Version">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/SapVersion">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/Author">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/LastChanged">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/ProjectName">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/CreatedBy">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/CreatedAt">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/LocalLastChangedBy">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/LocalLastChangedAt">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/LastChangedAt">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/Tierid">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/TL_Projectid">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/TL_Version">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/ES_Id">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/ES_Tierid">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/ET_Id">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/ET_ES_Id">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/tbbid">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/tbbetid">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/Delete_mc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType/Update_mc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_Projectdetails_C_LessType">
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="HeaderFacet"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Fieldgroup:HeaderItems"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="Fieldgroup:HeaderItems">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Project ID"/>
+                                    <PropertyValue Property="Value" Path="Projectid"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Tier Level"/>
+                                    <PropertyValue Property="Value" Path="TierLevel"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Extension Style"/>
+                                    <PropertyValue Property="Value" Path="StyleName"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Extension Task"/>
+                                    <PropertyValue Property="Value" Path="TaskName"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Technical Extension Building Block"/>
+                                    <PropertyValue Property="Value" Path="tbbname"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Project Detail"/>
+                        <PropertyValue Property="TypeNamePlural" String="Project Details"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataFieldWithNavigationPath">
+                                <PropertyValue Property="Label" String="Project Details"/>
+                                <PropertyValue Property="Value" Path="ProjectName"/>
+                                <PropertyValue Property="Target" String="">
+                                    <Annotation Term="Core.Messages">
+                                        <Collection>
+                                            <Record>
+                                                <PropertyValue Property="message" String="ERROR: Invalid Path"/>
+                                                <PropertyValue Property="severity" String="error"/>
+                                            </Record>
+                                        </Collection>
+                                    </Annotation>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Project ID"/>
+                            <PropertyValue Property="Value" Path="Projectid"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Tier Level"/>
+                            <PropertyValue Property="Value" Path="TierLevel"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Extension Style"/>
+                            <PropertyValue Property="Value" Path="StyleName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Extension Task"/>
+                            <PropertyValue Property="Value" Path="TaskName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Technical Extension Building Block"/>
+                            <PropertyValue Property="Value" Path="tbbname"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Project ID"/>
+                            <PropertyValue Property="Value" Path="Projectid"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Tier Level"/>
+                            <PropertyValue Property="Value" Path="TierLevel"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Extension Style"/>
+                            <PropertyValue Property="Value" Path="StyleName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Extension Task"/>
+                            <PropertyValue Property="Value" Path="TaskName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Technical Extension Building Block"/>
+                            <PropertyValue Property="Value" Path="tbbname"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Projectid</PropertyPath>
+                        <PropertyPath>TierLevel</PropertyPath>
+                        <PropertyPath>StyleName</PropertyPath>
+                        <PropertyPath>TaskName</PropertyPath>
+                        <PropertyPath>tbbname</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_ProjectOverview_CType/HasDraftEntity">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_ProjectOverview_CType/DraftEntityCreationDateTime">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_ProjectOverview_CType/DraftEntityLastChangeDateTime">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_ProjectOverview_CType/HasActiveEntity">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_ProjectOverview_CType/IsActiveEntity">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_ProjectOverview_CType/LastChanged">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_ProjectOverview_CType/CreatedBy">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_ProjectOverview_CType/CreatedAt">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_ProjectOverview_CType/LocalLastChangedBy">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_ProjectOverview_CType/LastChangedAt">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_ProjectOverview_CType/Archived">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_ProjectOverview_CType/MimeType">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_ProjectOverview_CType/Filename">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_ProjectOverview_CType/AlreadyImported">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_ProjectOverview_CType/Edit_ac">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_ProjectOverview_CType">
+                <Annotation Term="UI.DataPoint" Qualifier="LocalLastChangedAt">
+                    <Record>
+                        <PropertyValue Property="Value" Path="LocalLastChangedAt"/>
+                        <PropertyValue Property="Title" String="Last Action On"/>
+                        <PropertyValue Property="TargetValue" Path="LocalLastChangedAt"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="Projectid">
+                    <Record>
+                        <PropertyValue Property="Value" Path="Projectid"/>
+                        <PropertyValue Property="Title" String="Project ID"/>
+                        <PropertyValue Property="TargetValue" Path="Projectid"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="File Information"/>
+                            <PropertyValue Property="ID" String="Attachment"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="ID" String="Upload"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Upload"/>
+                                    </Record>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Project Technology Details"/>
+                                        <PropertyValue Property="ID" String="Data"/>
+                                        <PropertyValue Property="Target" AnnotationPath="totbbview/@UI.LineItem"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="HDR_PrNa"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#ProjectName"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="HDR_FILE"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#LocalLastChangedAt"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="HDR_Vers"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#Version"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="Upload">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Attachment"/>
+                                    <PropertyValue Property="Value" Path="$value"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Project Overview"/>
+                        <PropertyValue Property="TypeNamePlural" String="Project Overviews"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataFieldWithNavigationPath">
+                                <PropertyValue Property="Label" String="Project Name"/>
+                                <PropertyValue Property="Value" Path="ProjectName"/>
+                                <PropertyValue Property="Target" String="">
+                                    <Annotation Term="Core.Messages">
+                                        <Collection>
+                                            <Record>
+                                                <PropertyValue Property="message" String="ERROR: Invalid Path"/>
+                                                <PropertyValue Property="severity" String="error"/>
+                                            </Record>
+                                        </Collection>
+                                    </Annotation>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Version"/>
+                            <PropertyValue Property="Value" Path="Version"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Project ID"/>
+                            <PropertyValue Property="Value" Path="Projectid"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="File"/>
+                            <PropertyValue Property="Value" Path="$value"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="SapVersion"/>
+                            <PropertyValue Property="Value" Path="SapVersion"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Author"/>
+                            <PropertyValue Property="Value" Path="Author"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="ProjectName"/>
+                            <PropertyValue Property="Value" Path="ProjectName"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Version"/>
+                            <PropertyValue Property="Value" Path="Version"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Project ID"/>
+                            <PropertyValue Property="Value" Path="Projectid"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="SapVersion"/>
+                            <PropertyValue Property="Value" Path="SapVersion"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Author"/>
+                            <PropertyValue Property="Value" Path="Author"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="ProjectName"/>
+                            <PropertyValue Property="Value" Path="ProjectName"/>
+                        </Record>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Delete Projects"/>
+                            <PropertyValue Property="Action" String="cds_z00sap_servdef.cds_z00sap_servdef_Entities/deleteProject"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
+                        </Record>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Import Project"/>
+                            <PropertyValue Property="Action" String="">
+                                <Annotation Term="Core.Messages">
+                                    <Collection>
+                                        <Record>
+                                            <PropertyValue Property="message" String="ERROR: Mandatory Value for Action not found"/>
+                                            <PropertyValue Property="severity" String="error"/>
+                                        </Record>
+                                    </Collection>
+                                </Annotation>
+                            </PropertyValue>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
+                        </Record>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Duplicate Projects"/>
+                            <PropertyValue Property="Action" String="cds_z00sap_servdef.cds_z00sap_servdef_Entities/duplicateProject"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Projectid</PropertyPath>
+                        <PropertyPath>SapVersion</PropertyPath>
+                        <PropertyPath>Author</PropertyPath>
+                        <PropertyPath>ProjectName</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_PROJECTS_CType/Delete_mc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z00sap_servdef.Z00SAP_PROJECTS_CType/Update_mc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

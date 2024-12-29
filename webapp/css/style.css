@@ -1,0 +1,9 @@
+/* Add these styles in your CSS file */
+.boldGroupHeader {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.taskItem {
+    margin: 5px 0;
+}

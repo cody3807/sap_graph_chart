@@ -1,0 +1,49 @@
+<mvc:View controllerName="aemmanagement.project1.controller.Project_Overview"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Table id="Project_Overview" items="{/Z00SAP_ProjectOverview_C}" growing="true" alternateRowColors="true">
+                <columns>
+                    <Column>
+                        <Text text="" />
+                    </Column>
+                    <Column>
+                        <Text text="Version" />
+                    </Column>
+                    <Column>
+                        <Text text="Project ID" />
+                    </Column>
+                    <Column>
+                        <Text text="Sap Version" />
+                    </Column>
+                    <Column>
+                        <Text text="Author" />
+                    </Column>
+                    <Column>
+                        <Text text="Project Name" />
+                 
+                    </Column>
+                           <Column>
+                                    <Text text="Actions"/>
+                                </Column>
+
+                </columns>
+                <items>
+                    <ColumnListItem type="Navigation" press="onProjectSelect">
+                        <cells>
+                            <CheckBox selected="{path: 'isSelected'}" select="onSelectCheckBox" />
+                            <Text text="{Version}" />
+                            <Text text="{Projectid}" />
+                            <Text text="{SapVersion}" />
+                            <Text text="{Author}" />
+                            <Text text="{ProjectName}" />
+                            <Button text="Delete" type="Reject" press="onDeletePress" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

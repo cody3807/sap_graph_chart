@@ -1,0 +1,34 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    xmlns="sap.suite.ui.commons"
+    controllerName="aemmanagement.project1.controller.TaskDetails">
+    <m:Page title="Process Flow">
+        <content>
+<ProcessFlow
+    id="processFlow"
+    nodes="{processFlow>/nodes}"
+    lanes="{processFlow>/lanes}">
+    <nodes>
+        <ProcessFlowNode
+            laneId="{processFlow>lane}"
+            nodeId="{processFlow>id}"
+            title="{processFlow>title}"
+            titleAbbreviation="{processFlow>titleAbbreviation}"
+            children="{processFlow>children}"
+            state="{processFlow>state}"
+            stateText="{processFlow>stateText}"
+            texts="{processFlow>texts}" />
+    </nodes>
+    <lanes>
+        <ProcessFlowLaneHeader
+            laneId="{processFlow>id}"
+            iconSrc="{processFlow>icon}"
+            text="{processFlow>label}"
+            position="{processFlow>position}" />
+    </lanes>
+</ProcessFlow>
+
+        </content>
+    </m:Page>
+</mvc:View>
