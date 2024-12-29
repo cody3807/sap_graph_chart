@@ -8,11 +8,14 @@
     "sapui5"
   ],
   "main": "webapp/index.html",
-  "dependencies": {},
+  "dependencies": {
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.2"
+  },
   "devDependencies": {
-    "@ui5/cli": "^3.0.0",
+    "@sap-ux/ui5-middleware-fe-mockserver": "2",
     "@sap/ux-ui5-tooling": "1",
-    "@sap-ux/ui5-middleware-fe-mockserver": "2"
+    "@ui5/cli": "^3.0.0"
   },
   "scripts": {
     "start": "fiori run --open \"test/flpSandbox.html?sap-client=300&sap-ui-xx-viewCache=false#aemmanagementproject1-display\"",

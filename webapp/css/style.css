@@ -1,9 +1,14 @@
-/* Add these styles in your CSS file */
-.boldGroupHeader {
-    font-weight: bold;
-    margin-bottom: 10px;
+.centerNodes .sapSuiteUiCommonsProcessFlowNode {
+    margin: auto; /* Centers nodes horizontally and vertically */
+    display: flex;
+    align-items: center; /* Vertically align the content inside nodes */
+    justify-content: center; /* Horizontally align the content inside nodes */
 }
 
-.taskItem {
-    margin: 5px 0;
+.processFlowContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

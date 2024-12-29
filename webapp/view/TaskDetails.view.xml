@@ -1,13 +1,67 @@
-<mvc:View
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns:m="sap.m"
-    xmlns="sap.suite.ui.commons"
-    controllerName="aemmanagement.project1.controller.TaskDetails">
-    <m:Page title="Process Flow">
-        <content>
-<ProcessFlow
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:m="sap.m" xmlns="sap.suite.ui.commons" controllerName="aemmanagement.project1.controller.TaskDetails">
+    <m:Page title="Task Details">
+        <m:IconTabBar>
+            <!-- Tab for Table -->
+            <m:items>
+                <m:IconTabFilter text="Table View">
+                    <m:Table id="taskDetailsTable" growing="true" alternateRowColors="true" items="{/filteredResults}">
+                        <m:columns>
+                            <m:Column>
+                                <m:Text text="Extension Task ID" />
+                            </m:Column>
+                            <m:Column>
+                                <m:Text text="Project ID" />
+                            </m:Column>
+                            <m:Column>
+                                <m:Text text="Version" />
+                            </m:Column>
+                            <m:Column>
+                                <m:Text text="Hierarchy" />
+                            </m:Column>
+                            <m:Column>
+                                <m:Text text="Task Name" />
+                            </m:Column>
+                            <m:Column>
+                                <m:Text text="Parent Node" />
+                            </m:Column>
+                            <m:Column>
+                                <m:Text text="Level" />
+                            </m:Column>
+                            <m:Column>
+                                <m:Text text="TBB Name" />
+                            </m:Column>
+                        </m:columns>
+                        <m:items>
+                            <m:ColumnListItem>
+                                <m:cells>
+                                    <m:Text text="{ET_Id}" />
+                                    <m:Text text="{Projectid}" />
+                                    <m:Text text="{Version}" />
+                                    <m:Text text="{Hierachy}" />
+                                    <m:Text text="{TaskName}" />
+                                    <m:Text text="{ParentNode}" />
+                                    <m:Text text="{Level}" />
+                                    <m:Text text="{tbbname}" />
+                                </m:cells>
+                            </m:ColumnListItem>
+                        </m:items>
+                    </m:Table>
+                </m:IconTabFilter>
+
+                <!-- Tab for Process Flow -->
+                <m:IconTabFilter text="Process Flow">
+                <m:Button text="Export as Image" press="onExportAsImage" />
+                <m:Button text="Export as PDF" press="onExportAsPDF" />
+
+
+                    <ProcessFlow
     id="processFlow"
+    scrollable="true"
+    foldedCorners="true"
+    orientation="Vertical"
     nodes="{processFlow>/nodes}"
+    class="centerNodes"
+    showLabels="false"
     lanes="{processFlow>/lanes}">
     <nodes>
         <ProcessFlowNode
@@ -18,7 +72,9 @@
             children="{processFlow>children}"
             state="{processFlow>state}"
             stateText="{processFlow>stateText}"
-            texts="{processFlow>texts}" />
+            texts="{processFlow>texts}"
+            highlighted="{processFlow>highlighted}"
+            focused="{processFlow>focused}" />
     </nodes>
     <lanes>
         <ProcessFlowLaneHeader
@@ -29,6 +85,8 @@
     </lanes>
 </ProcessFlow>
 
-        </content>
+                </m:IconTabFilter>
+            </m:items>
+        </m:IconTabBar>
     </m:Page>
 </mvc:View>
