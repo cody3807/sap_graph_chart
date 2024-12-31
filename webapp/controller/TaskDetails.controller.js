@@ -1,7 +1,7 @@
 sap.ui.define([
     "aemmanagement/project1/controller/BaseController",
     "sap/ui/model/json/JSONModel",
-    // "html2canvas",  // Ensure the html2canvas library is loaded
+    //"html2canvas",  // Ensure the html2canvas library is loaded
     // "jspdf"         // Ensure the jsPDF library is loaded
 ], function (Controller, JSONModel, html2canvas, jsPDF) {
     "use strict";
@@ -88,7 +88,16 @@ sap.ui.define([
                 
                 // A2= A parentHierarchy, level is 2, A(2-1), A1
                 const nodeId = String(currentId++);
-                hierarchyMap.set(hierarchy, nodeId);
+                
+                
+                if (hierarchy.length=== 5) {
+                    hierarchyMap.set(hierarchy.substring(0,2), nodeId);
+                    hierarchyMap.set(hierarchy.substring(3,5), nodeId);
+                    console.log(hierarchyMap)
+                } else {
+                    hierarchyMap.set(hierarchy, nodeId);
+                    console.log(hierarchyMap)
+                }
         
                 enrichedData.push({
                     ...item,
@@ -143,9 +152,9 @@ sap.ui.define([
                     children: enrichedData
                         .filter((child) => child.ParentNode === node.NodeId)
                         .map((child) => child.NodeId),
-                    state: nodeState
+                    state: nodeState,
                     //stateText: `Level ${node.Level}`,
-                    //texts: [node.tbbname || "No Description"]
+                    texts: [node.Hierachy || "No Description"]
                 });
             });
         
