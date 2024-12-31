@@ -86,7 +86,7 @@ sap.ui.define([
                 
                 const parentNodeId = hierarchyMap.get(combinedKey ) || rootNode.NodeId;
                 
-        
+                // A2= A parentHierarchy, level is 2, A(2-1), A1
                 const nodeId = String(currentId++);
                 hierarchyMap.set(hierarchy, nodeId);
         
@@ -126,9 +126,9 @@ sap.ui.define([
                 }
                  // Determine the state based on the level
         let nodeState = "Neutral"; // Default state
-        if (node.Level === '1') {
+        if (node.Level === 1) {
             nodeState = "Positive"; // Green background
-        } else if (node.Level === '2') {
+        } else if (node.Level === 2) {
             nodeState = "Critical"; // Orange background
         } else if (node.Level >= 3) {
             nodeState = "Negative"; // Red background
@@ -194,39 +194,40 @@ sap.ui.define([
                 console.error("Error exporting as PDF:", err);
             });
         }
+    //     ,
         
         
 
-        // _saveProcessFlowToFile: function (enrichedData) {
-        //     const processFlowNodes = enrichedData.map((node) => ({
-        //         id: node.NodeId,
-        //         lane: node.Level.toString(),
-        //         title: node.TaskName,
-        //         children: enrichedData
-        //             .filter((child) => child.ParentNode === node.NodeId)
-        //             .map((child) => child.NodeId),
-        //         state: node.Level === "0" ? "Positive" : "Neutral",
-        //         stateText: `Level ${node.Level}`,
-        //         texts: [node.tbbname || "No Description"]
-        //     }));
+    //     _saveProcessFlowToFile: function (enrichedData) {
+    //         const processFlowNodes = enrichedData.map((node) => ({
+    //             id: node.NodeId,
+    //             lane: node.Level.toString(),
+    //             title: node.TaskName,
+    //             children: enrichedData
+    //                 .filter((child) => child.ParentNode === node.NodeId)
+    //                 .map((child) => child.NodeId),
+    //             state: node.Level === "0" ? "Positive" : "Neutral",
+    //             stateText: `Level ${node.Level}`,
+    //             texts: [node.tbbname || "No Description"]
+    //         }));
 
-        //     const processFlowLanes = Array.from(
-        //         new Map(
-        //             enrichedData.map((node) => [
-        //                 node.Level,
-        //                 {
-        //                     id: node.Level.toString(),
-        //                     icon: "sap-icon://activity-items",
-        //                     label: `Level ${node.Level}`,
-        //                     position: parseInt(node.Level, 10)
-        //                 }
-        //             ])
-        //         ).values()
-        //     );
+    //         const processFlowLanes = Array.from(
+    //             new Map(
+    //                 enrichedData.map((node) => [
+    //                     node.Level,
+    //                     {
+    //                         id: node.Level.toString(),
+    //                         icon: "sap-icon://activity-items",
+    //                         label: `Level ${node.Level}`,
+    //                         position: parseInt(node.Level, 10)
+    //                     }
+    //                 ])
+    //             ).values()
+    //         );
 
-        //     const jsonData = JSON.stringify({ nodes: processFlowNodes, lanes: processFlowLanes }, null, 2);
-        //     File.save(jsonData, "processflow", "json", "application/json");
-        // }
-    });
+    //         const jsonData = JSON.stringify({ nodes: processFlowNodes, lanes: processFlowLanes }, null, 2);
+    //         File.save(jsonData, "processflow", "json", "application/json");
+    //     }
+     });
 });
 
