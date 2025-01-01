@@ -29,6 +29,9 @@ sap.ui.define([
 
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
+
+                sap.ui.getCore().loadLibrary("sap.suite.ui.commons");
+
             }
         });
     }

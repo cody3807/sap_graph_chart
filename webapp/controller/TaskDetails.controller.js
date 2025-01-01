@@ -1,6 +1,9 @@
 sap.ui.define([
     "aemmanagement/project1/controller/BaseController",
     "sap/ui/model/json/JSONModel",
+    
+    
+    
     //"html2canvas",  // Ensure the html2canvas library is loaded
     // "jspdf"         // Ensure the jsPDF library is loaded
 ], function (Controller, JSONModel, html2canvas, jsPDF) {
@@ -11,6 +14,7 @@ sap.ui.define([
             const oRouter = this.getRouter();
             oRouter.getRoute("RouteTaskDetails").attachMatched(this._onRouteMatched, this);
             sap.ui.getCore().loadLibrary("sap.suite.ui.commons", { async: true });
+            
         },
 
         _onRouteMatched: function (oEvent) {
@@ -54,7 +58,8 @@ sap.ui.define([
 
             this._bindDataToTable(enrichedData);
             this._generateProcessFlow(enrichedData);
-            this._saveProcessFlowToFile(enrichedData);
+            //this._saveProcessFlowToFile(enrichedData);
+            this._generateNetworkGraph(enrichedData);
         },
 
         _createRootNode: function (taskName) {
@@ -237,6 +242,35 @@ sap.ui.define([
     //         const jsonData = JSON.stringify({ nodes: processFlowNodes, lanes: processFlowLanes }, null, 2);
     //         File.save(jsonData, "processflow", "json", "application/json");
     //     }
+    ,
+    _generateNetworkGraph: function (enrichedData) {
+        const nodes = [];
+        const lines = [];
+    
+        // Generate nodes and lines for the network graph
+        enrichedData.forEach((node) => {
+            nodes.push({
+                key: node.NodeId,
+                title: node.tbbname || node.TaskName,
+                description: `Level: ${node.Level}`,
+                status: node.Level === 1 ? "Success" : node.Level === 2 ? "Warning" : "Error"
+            });
+    
+            if (node.ParentNode) {
+                lines.push({
+                    from: node.ParentNode,
+                    to: node.NodeId
+                });
+            }
+        });
+    
+        const oNetworkGraphModel = new sap.ui.model.json.JSONModel({
+            nodes: nodes,
+            lines: lines
+        });
+        this.getView().setModel(oNetworkGraphModel, "networkGraph");
+    }
+    
      });
 });
 
