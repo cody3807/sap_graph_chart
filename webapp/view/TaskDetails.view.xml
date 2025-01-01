@@ -1,12 +1,21 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc"
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
     xmlns:m="sap.m"
-    xmlns="sap.suite.ui.commons" controllerName="aemmanagement.project1.controller.TaskDetails">
+    xmlns="sap.suite.ui.commons"
+    xmlns:layout="sap.suite.ui.commons.networkgraph.layout"
+    controllerName="aemmanagement.project1.controller.TaskDetails"
+>
     <m:Page title="Task Details">
         <m:IconTabBar>
             <!-- Tab for Table -->
             <m:items>
                 <m:IconTabFilter text="Table View">
-                    <m:Table id="taskDetailsTable" growing="true" alternateRowColors="true" items="{/filteredResults}">
+                    <m:Table
+                        id="taskDetailsTable"
+                        growing="true"
+                        alternateRowColors="true"
+                        items="{/filteredResults}"
+                    >
                         <m:columns>
                             <m:Column>
                                 <m:Text text="Extension Task ID" />
@@ -52,50 +61,94 @@
 
                 <!-- Tab for Process Flow -->
                 <m:IconTabFilter text="Process Flow">
-                    <m:Button text="Export as Image" press="onExportAsImage" />
+                    <m:Button
+                        text="Export as Image"
+                        press="onExportAsImage"
+                    />
                     <!-- <m:Button text="Export as PDF" press="onExportAsPDF" /> -->
 
-
-                    <ProcessFlow id="processFlow" scrollable="false" orientation= "TopBottom" wheelZoomable='false' foldedCorners="true" nodes="{processFlow>/nodes}" class="centerNodes" showLabels="false" lanes="{processFlow>/lanes}">
+                    <ProcessFlow
+                        id="processFlow"
+                        scrollable="false"
+                        orientation="TopBottom"
+                        wheelZoomable='false'
+                        foldedCorners="true"
+                        nodes="{processFlow>/nodes}"
+                        class="centerNodes"
+                        showLabels="false"
+                        lanes="{processFlow>/lanes}"
+                    >
                         <nodes>
-                            <ProcessFlowNode laneId="{processFlow>lane}" nodeId="{processFlow>id}" title="{processFlow>title}" titleAbbreviation="{processFlow>titleAbbreviation}" children="{processFlow>children}" state="{processFlow>state}" stateText="{processFlow>stateText}" texts="{processFlow>texts}" highlighted="{processFlow>highlighted}" focused="{processFlow>focused}" />
+                            <ProcessFlowNode
+                                laneId="{processFlow>lane}"
+                                nodeId="{processFlow>id}"
+                                title="{processFlow>title}"
+                                titleAbbreviation="{processFlow>titleAbbreviation}"
+                                children="{processFlow>children}"
+                                state="{processFlow>state}"
+                                stateText="{processFlow>stateText}"
+                                texts="{processFlow>texts}"
+                                highlighted="{processFlow>highlighted}"
+                                focused="{processFlow>focused}"
+                            />
                         </nodes>
                         <lanes>
-                            <ProcessFlowLaneHeader laneId="{processFlow>id}" iconSrc="{processFlow>icon}" text="{processFlow>label}" position="{processFlow>position}" />
+                            <ProcessFlowLaneHeader
+                                laneId="{processFlow>id}"
+                                iconSrc="{processFlow>icon}"
+                                text="{processFlow>label}"
+                                position="{processFlow>position}"
+                            />
                         </lanes>
                     </ProcessFlow>
-
                 </m:IconTabFilter>
 
-
                 <m:IconTabFilter text="Network Graph">
-                    <m:Button text="Export as Image" press="onExportAsImage2" />
+                    <m:Button
+                        text="Export as Image"
+                        press="onExportAsImage2"
+                    />
 
-                    <networkgraph.Graph id="networkGraph" height="100%" width="100%"
-                    enableWheelZoom = 'false' enableZoom='false' orientation= "TopBottom" nodes="{network>/nodes}" lines="{network>/lines}">
+                    <networkgraph.Graph
+                        id="networkGraph"
+                        height="100%"
+                        width="100%"
+                        enableWheelZoom='false'
+                        enableZoom='false'
+                        orientation="TopBottom"
+                        nodes="{network>/nodes}"
+                        lines="{network>/lines}"
+                        layout="Layered"
+                    >
+                        <layoutAlgorithm>
+                            <layout:LayeredLayout
+                                mergeEdges="true"
+                                nodePlacement="Simple"
+                                nodeSpacing="40"
+                            />
+                        </layoutAlgorithm>
                         <nodes>
-                            <networkgraph.Node 
-                            x="{network>x1}" 
-                            y="{network>y1}" 
-                            key="{network>key}" 
-                            title="{network>title}"
-                            titleLineSize="3"
-                             shape="{network>shape}" 
-                             
-                              width="{network>width}" status="{network>status}" />
+                            <networkgraph.Node
+                                x="{network>x1}"
+                                y="{network>y1}"
+                                key="{network>key}"
+                                title="{network>title}"
+                                titleLineSize="3"
+                                shape="{network>shape}"
+                                width="{network>width}"
+                                status="{network>status}"
+                            />
                             <!-- group="{network>group}"  -->
-
                         </nodes>
                         <lines>
-                            <networkgraph.Line from="{network>from}" to="{network>to}" />
+                            <networkgraph.Line
+                                from="{network>from}"
+                                to="{network>to}"
+                            />
                         </lines>
                     </networkgraph.Graph>
                 </m:IconTabFilter>
-
             </m:items>
-
         </m:IconTabBar>
-
-
     </m:Page>
 </mvc:View>

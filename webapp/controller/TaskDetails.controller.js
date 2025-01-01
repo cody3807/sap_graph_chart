@@ -3,6 +3,7 @@ sap.ui.define([
     "aemmanagement/project1/controller/BaseController",
     "sap/ui/model/json/JSONModel",
     "aemmanagement/project1/libs/html2canvas",
+    "sap/suite/ui/commons/networkgraph/layout/LayeredLayout",
     
     //"html2canvas",  // Ensure the html2canvas library is loaded
     // "jspdf"         // Ensure the jsPDF library is loaded
