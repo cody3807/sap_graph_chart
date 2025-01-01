@@ -173,6 +173,23 @@ sap.ui.define([
         
             this.getView().setModel(oProcessFlowModel, "processFlow");
         },
+        
+        onExportAsImage2: function () {
+            const processFlow = this.byId("networkGraph"); // ID of your ProcessFlow control
+            const domElement = processFlow.getDomRef();
+        
+            html2canvas(domElement).then((canvas) => {
+                const imgData = canvas.toDataURL("image/png");
+        
+                // Create a link element to download the image
+                const link = document.createElement("a");
+                link.href = imgData;
+                link.download = "networkGraph.png";
+                link.click();
+            }).catch((err) => {
+                console.error("Error exporting as Image:", err);
+            });
+        },
 
         onExportAsImage: function () {
             const processFlow = this.byId("processFlow"); // ID of your ProcessFlow control
@@ -246,30 +263,68 @@ sap.ui.define([
     _generateNetworkGraph: function (enrichedData) {
         const nodes = [];
         const lines = [];
-    
+        let x1 = 0;
+        let y1 = 0;
         // Generate nodes and lines for the network graph
         enrichedData.forEach((node) => {
+            if (node.Level === 0 ) {
+                x1 = 0;
+                y1 =120;
+                
+            }
+            else {
+                x1="auto";
+                y1 ="auto";
+                
+
+
+            }
+            
+            // Add nodes
             nodes.push({
                 key: node.NodeId,
                 title: node.tbbname || node.TaskName,
                 description: `Level: ${node.Level}`,
-                status: node.Level === 1 ? "Success" : node.Level === 2 ? "Warning" : "Error"
+                // icon: "sap-icon://activity-items",
+                x: x1,
+                y: y1,
+  
+                shape: "Box",
+                 //height: 80,
+                 width: 200,
+                
+                status: node.Level === 0 ? "default" : node.Level === 1 ? "Success" : node.Level === 2 ? "Warning" : "Error",
+                //group: `Level ${node.Level}`,
             });
     
-            if (node.ParentNode) {
-                lines.push({
-                    from: node.ParentNode,
-                    to: node.NodeId
-                });
+            // Add lines
+            if (node.NodeId !== "1") {
+                const parentExists = nodes.some((n) => n.key === node.ParentNode);
+                if (parentExists) {
+                    lines.push({
+                        from: node.ParentNode,
+                        to: node.NodeId,
+                    });
+                } else {
+                    console.error("Invalid ParentNode reference:", node.ParentNode);
+                }
             }
         });
     
+      
+    
+        // Set up the model
         const oNetworkGraphModel = new sap.ui.model.json.JSONModel({
             nodes: nodes,
-            lines: lines
+            lines: lines,
         });
-        this.getView().setModel(oNetworkGraphModel, "networkGraph");
+        oNetworkGraphModel.setSizeLimit(10000); // Increase size limit
+        console.log("Generated Nodes:", nodes);
+        console.log("Generated Lines:", lines);
+        this.getView().setModel(oNetworkGraphModel, "network");
     }
+    
+    
     
      });
 });

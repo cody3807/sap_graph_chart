@@ -55,10 +55,12 @@
                 <!-- Tab for Process Flow -->
                 <m:IconTabFilter text="Process Flow">
                     <m:Button text="Export as Image" press="onExportAsImage" />
-                    <m:Button text="Export as PDF" press="onExportAsPDF" />
+                    <!-- <m:Button text="Export as PDF" press="onExportAsPDF" /> -->
 
 
-                    <ProcessFlow id="processFlow" scrollable="true" foldedCorners="true" orientation="vertical" nodes="{processFlow>/nodes}" class="centerNodes" showLabels="false" lanes="{processFlow>/lanes}">
+                    <ProcessFlow id="processFlow" scrollable="true" foldedCorners="true" 
+                    
+                    nodes="{processFlow>/nodes}" class="centerNodes" showLabels="false" lanes="{processFlow>/lanes}">
                         <nodes>
                             <ProcessFlowNode laneId="{processFlow>lane}" nodeId="{processFlow>id}" title="{processFlow>title}" titleAbbreviation="{processFlow>titleAbbreviation}" children="{processFlow>children}" state="{processFlow>state}" stateText="{processFlow>stateText}" texts="{processFlow>texts}" highlighted="{processFlow>highlighted}" focused="{processFlow>focused}" />
                         </nodes>
@@ -71,16 +73,31 @@
 
 
 <m:IconTabFilter text="Network Graph">
+                    <m:Button text="Export as Image" press="onExportAsImage2" />
+
                 <networkgraph.Graph
                     id="networkGraph"
+                    height="800px"
+                    width="auto"
                     nodes="{network>/nodes}"
                     lines="{network>/lines}">
                     <nodes>
                         <networkgraph.Node 
-                            key="{network>id}"
+                            key="{network>key}"
                             title="{network>title}" 
-                            icon="{network>icon}" 
-                            group="{network>group}" />
+                            shape="{network>shape}"
+                            height="{network>height}"
+                            width="{network>width}"
+                            x="{network>x1}"
+                            y="{network>y1}"
+                            status="{network>status}"
+                            
+
+                            
+                            
+                            />
+                            <!-- group="{network>group}"  -->
+                            
                     </nodes>
                     <lines>
                         <networkgraph.Line 
