@@ -1,12 +1,12 @@
+/* global html2canvas:true */
 sap.ui.define([
     "aemmanagement/project1/controller/BaseController",
     "sap/ui/model/json/JSONModel",
-    
-    
+    "aemmanagement/project1/libs/html2canvas",
     
     //"html2canvas",  // Ensure the html2canvas library is loaded
     // "jspdf"         // Ensure the jsPDF library is loaded
-], function (Controller, JSONModel, html2canvas, jsPDF) {
+], function (Controller, JSONModel, html2canvasjs, jsPDFjs) {
     "use strict";
 
     return Controller.extend("aemmanagement.project1.controller.TaskDetails", {
