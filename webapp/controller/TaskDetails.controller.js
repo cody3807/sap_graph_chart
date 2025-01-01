@@ -290,8 +290,8 @@ sap.ui.define([
                 y: y1,
   
                 shape: "Box",
-                 //height: 80,
-                 width: 200,
+                 height: 80,
+                 width: 150,
                 
                 status: node.Level === 0 ? "default" : node.Level === 1 ? "Success" : node.Level === 2 ? "Warning" : "Error",
                 //group: `Level ${node.Level}`,

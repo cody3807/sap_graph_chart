@@ -1,8 +1,6 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
     xmlns:m="sap.m"
-    xmlns="sap.suite.ui.commons" 
-    
-    controllerName="aemmanagement.project1.controller.TaskDetails">
+    xmlns="sap.suite.ui.commons" controllerName="aemmanagement.project1.controller.TaskDetails">
     <m:Page title="Task Details">
         <m:IconTabBar>
             <!-- Tab for Table -->
@@ -58,9 +56,7 @@
                     <!-- <m:Button text="Export as PDF" press="onExportAsPDF" /> -->
 
 
-                    <ProcessFlow id="processFlow" scrollable="true" foldedCorners="true" 
-                    
-                    nodes="{processFlow>/nodes}" class="centerNodes" showLabels="false" lanes="{processFlow>/lanes}">
+                    <ProcessFlow id="processFlow" scrollable="false" orientation= "TopBottom" wheelZoomable='false' foldedCorners="true" nodes="{processFlow>/nodes}" class="centerNodes" showLabels="false" lanes="{processFlow>/lanes}">
                         <nodes>
                             <ProcessFlowNode laneId="{processFlow>lane}" nodeId="{processFlow>id}" title="{processFlow>title}" titleAbbreviation="{processFlow>titleAbbreviation}" children="{processFlow>children}" state="{processFlow>state}" stateText="{processFlow>stateText}" texts="{processFlow>texts}" highlighted="{processFlow>highlighted}" focused="{processFlow>focused}" />
                         </nodes>
@@ -72,40 +68,29 @@
                 </m:IconTabFilter>
 
 
-<m:IconTabFilter text="Network Graph">
+                <m:IconTabFilter text="Network Graph">
                     <m:Button text="Export as Image" press="onExportAsImage2" />
 
-                <networkgraph.Graph
-                    id="networkGraph"
-                    height="800px"
-                    width="auto"
-                    nodes="{network>/nodes}"
-                    lines="{network>/lines}">
-                    <nodes>
-                        <networkgraph.Node 
-                            key="{network>key}"
-                            title="{network>title}" 
-                            shape="{network>shape}"
-                            height="{network>height}"
-                            width="{network>width}"
-                            x="{network>x1}"
-                            y="{network>y1}"
-                            status="{network>status}"
-                            
-
-                            
-                            
-                            />
+                    <networkgraph.Graph id="networkGraph" height="100%" width="100%"
+                    enableWheelZoom = 'false' enableZoom='false' orientation= "TopBottom" nodes="{network>/nodes}" lines="{network>/lines}">
+                        <nodes>
+                            <networkgraph.Node 
+                            x="{network>x1}" 
+                            y="{network>y1}" 
+                            key="{network>key}" 
+                            title="{network>title}"
+                            titleLineSize="3"
+                             shape="{network>shape}" 
+                             
+                              width="{network>width}" status="{network>status}" />
                             <!-- group="{network>group}"  -->
-                            
-                    </nodes>
-                    <lines>
-                        <networkgraph.Line 
-                            from="{network>from}" 
-                            to="{network>to}" />
-                    </lines>
-                </networkgraph.Graph>
-            </m:IconTabFilter>
+
+                        </nodes>
+                        <lines>
+                            <networkgraph.Line from="{network>from}" to="{network>to}" />
+                        </lines>
+                    </networkgraph.Graph>
+                </m:IconTabFilter>
 
             </m:items>
 
