@@ -4,6 +4,7 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "aemmanagement/project1/libs/html2canvas",
     "sap/suite/ui/commons/networkgraph/layout/LayeredLayout",
+    "aemmanagement/project1/libs/dom-to-image.min",
     
     //"html2canvas",  // Ensure the html2canvas library is loaded
     // "jspdf"         // Ensure the jsPDF library is loaded
@@ -176,20 +177,33 @@ sap.ui.define([
         },
         
         onExportAsImage2: function () {
-            const processFlow = this.byId("networkGraph"); // ID of your ProcessFlow control
-            const domElement = processFlow.getDomRef();
-        
-            html2canvas(domElement).then((canvas) => {
-                const imgData = canvas.toDataURL("image/png");
-        
+            //const networkGraph = this.byId("networkGraph"); // ID of your ProcessFlow control
+            //const domElement = networkGraph.getDomRef();
+            const domElement = document.querySelector("#application-aemmanagementproject1-display-component---TaskDetails--networkGraph-scroller");
+            
+            domtoimage.toPng(domElement)
+            .then((dataUrl) => {
                 // Create a link element to download the image
                 const link = document.createElement("a");
-                link.href = imgData;
+                link.href = dataUrl;
                 link.download = "networkGraph.png";
                 link.click();
-            }).catch((err) => {
-                console.error("Error exporting as Image:", err);
+            })
+            .catch((error) => {
+                console.error("Error exporting image with dom-to-image:", error);
             });
+
+            // html2canvas(domElement).then((canvas) => {
+            //     const imgData = canvas.toDataURL("image/png");
+        
+            //     // Create a link element to download the image
+            //     const link = document.createElement("a");
+            //     link.href = imgData;
+            //     link.download = "networkGraph.png";
+            //     link.click();
+            // }).catch((err) => {
+            //     console.error("Error exporting as Image:", err);
+            // });
         },
 
         onExportAsImage: function () {
