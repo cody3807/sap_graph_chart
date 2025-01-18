@@ -162,11 +162,11 @@ sap.ui.define([
                 }
                  // Determine the state based on the level
         let nodeState = "Neutral"; // Default state
-        if (node.Level === 1) {
+        if (node.Color === 'G') {
             nodeState = "Positive"; // Green background
-        } else if (node.Level === 2) {
+        } else if (node.Color === 'Y') {
             nodeState = "Critical"; // Orange background
-        } else if (node.Level >= 3) {
+        } else if (node.Color === 'R') {
             nodeState = "Negative"; // Red background
         }
         
