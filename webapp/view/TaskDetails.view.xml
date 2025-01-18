@@ -41,6 +41,9 @@
                             <m:Column>
                                 <m:Text text="TBB Name" />
                             </m:Column>
+                            <m:Column>
+                                <m:Text text="Color" />
+                            </m:Column>
                         </m:columns>
                         <m:items>
                             <m:ColumnListItem>
@@ -53,6 +56,7 @@
                                     <m:Text text="{ParentNode}" />
                                     <m:Text text="{Level}" />
                                     <m:Text text="{tbbname}" />
+                                    <m:Text text="{Color}" />
                                 </m:cells>
                             </m:ColumnListItem>
                         </m:items>

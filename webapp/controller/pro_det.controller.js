@@ -33,14 +33,24 @@ sap.ui.define([
         },
         onLineItemPress: function (oEvent) {
             const oContext = oEvent.getSource().getBindingContext();
-            const projectId = oContext.getProperty("Projectid");
-            const version = oContext.getProperty("Version");
-            const taskName = oContext.getProperty("TaskName");
+
+            
+            
+            let projectId = oContext.getProperty("Projectid");
+            let version = oContext.getProperty("Version");
+            let ET_Id = oContext.getProperty("ET_Id");
+        
+            // Call BaseController methods using `this`
+            projectId = this.uuid_encoder(projectId);
+            version = this.uuid_encoder(version);
+            ET_Id = this.uuid_encoder(ET_Id);
+            
         
             this.getRouter().navTo("RouteTaskDetails", {
                 Projectid: projectId,
                 Version: version,
-                TaskName: encodeURIComponent(taskName)
+                ET_Id: ET_Id,
+                
             });
         },
         

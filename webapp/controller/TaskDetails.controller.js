@@ -16,35 +16,55 @@ sap.ui.define([
             const oRouter = this.getRouter();
             oRouter.getRoute("RouteTaskDetails").attachMatched(this._onRouteMatched, this);
             sap.ui.getCore().loadLibrary("sap.suite.ui.commons", { async: true });
+
+
             
         },
 
         _onRouteMatched: function (oEvent) {
             const args = oEvent.getParameter("arguments");
-            const projectId = args.Projectid;
-            const version = args.Version;
-            const taskName = decodeURIComponent(args.TaskName);
+            let projectId = args.Projectid;
+            let version = args.Version;
+            
+            let ET_Id = args.ET_Id;
+            projectId=this.uuid_decoder(projectId)
+            
+            ET_Id=this.uuid_decoder(ET_Id)
+  
+            
 
-            this._fetchBackendData(projectId, version, taskName);
+            
+
+            this._fetchBackendData(projectId, version, ET_Id);
         },
 
-        _fetchBackendData: function (projectId, version, taskName) {
+        _fetchBackendData: function (projectId, version, ET_Id) {
             const oModel = this.getView().getModel();
             const aBackendFilters = [
                 new sap.ui.model.Filter("Projectid", sap.ui.model.FilterOperator.EQ, projectId),
-                new sap.ui.model.Filter("Version", sap.ui.model.FilterOperator.EQ, version)
+                new sap.ui.model.Filter("Version", sap.ui.model.FilterOperator.EQ, version),
+                new sap.ui.model.Filter("ET_Id", sap.ui.model.FilterOperator.EQ, ET_Id)
             ];
-
+            
+        
+            // Fetch data from the backend using the filters
             oModel.read("/Z00SAP_Projectdetails_C_Less", {
                 filters: aBackendFilters,
                 success: (oData) => {
-                    this._processData(oData.results, taskName);
+                    // Extract TaskName from the data (assuming there's only one match for ET_Id)
+                    if (oData.results && oData.results.length > 0) {
+                        const taskName = oData.results[0].TaskName; // Extract TaskName
+                        this._processData(oData.results, taskName);
+                    } else {
+                        console.warn(`No data found for ET_Id: ${ET_Id}`);
+                    }
                 },
                 error: (oError) => {
                     console.error("Error fetching backend data:", oError);
                 }
             });
         },
+        
 
         _processData: function (aData, taskName) {
             const aFilteredData = aData.filter((item) => item.TaskName === taskName);
@@ -308,7 +328,7 @@ sap.ui.define([
                  height: 80,
                  width: 150,
                 
-                status: node.Level === 0 ? "default" : node.Level === 1 ? "Success" : node.Level === 2 ? "Warning" : "Error",
+                status: node.Level === 0 ? "default" : node.Color === "G" ? "Success" : node.Color === "Y" ? "Warning" : "Error",
                 //group: `Level ${node.Level}`,
             });
     

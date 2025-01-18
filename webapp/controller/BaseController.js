@@ -205,6 +205,31 @@ sap.ui.define(
             //     this.getView().addDependent(oValueHelpDialog);
             // }
             // ,
+            uuid_encoder: function (uuid) {
+                // Removes the dashes from the UUID
+                if (!uuid || typeof uuid !== "string") {
+                    console.error("Invalid UUID provided for encoding.");
+                    return null;
+                }
+                return uuid.replace(/-/g, "");
+            },
+            
+            uuid_decoder: function (encodedUuid) {
+                // Adds the dashes back to the UUID at their correct positions
+                if (!encodedUuid || typeof encodedUuid !== "string" || encodedUuid.length !== 32) {
+                    console.error("Invalid encoded UUID provided for decoding.");
+                    return null;
+                }
+                // Insert dashes at positions 8, 12, 16, and 20
+                return (
+                    encodedUuid.slice(0, 8) + "-" +
+                    encodedUuid.slice(8, 12) + "-" +
+                    encodedUuid.slice(12, 16) + "-" +
+                    encodedUuid.slice(16, 20) + "-" +
+                    encodedUuid.slice(20)
+                );
+            },
+            
             
             onvaluehelp_p: function (oEvent){
                 

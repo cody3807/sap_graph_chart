@@ -111,7 +111,7 @@
       },
       {
         "name": "RouteTaskDetails",
-        "pattern": "TaskDetails/{Projectid}/{Version}/{TaskName}",
+        "pattern": "TaskDetails/{Projectid}/{Version}/{ET_Id}",
         "target": "TargetTaskDetails"
     }
       ],
