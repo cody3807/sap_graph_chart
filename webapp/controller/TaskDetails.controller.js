@@ -199,7 +199,8 @@ sap.ui.define([
         onExportAsImage2: function () {
             //const networkGraph = this.byId("networkGraph"); // ID of your ProcessFlow control
             //const domElement = networkGraph.getDomRef();
-            const domElement = document.querySelector("#application-aemmanagementproject1-display-component---TaskDetails--networkGraph-scroller");
+            const domElement = document.querySelector('[id="container-aemmanagement.project1---TaskDetails--networkGraph-scroller"]');
+            console.log(domElement)
             
             domtoimage.toPng(domElement)
             .then((dataUrl) => {
