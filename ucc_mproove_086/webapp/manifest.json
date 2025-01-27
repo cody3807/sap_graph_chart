@@ -1,0 +1,246 @@
+{
+  "_version": "1.48.0",
+  "sap.app": {
+    "id": "zm086.uccmproove086",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.15.3",
+      "toolsId": "acd0173a-6647-4f95-b8bf-37a2188a57c5"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/z00sap_servbindv4/srvd/sap/z00sap_servdef/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      },
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.108.33",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "zm086.uccmproove086.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "Z00SAP_ProjectOverview_CList",
+          "target": "Z00SAP_ProjectOverview_CList"
+        },
+        {
+          "pattern": "Z00SAP_ProjectOverview_C({key}):?query:",
+          "name": "Z00SAP_ProjectOverview_CObjectPage",
+          "target": "Z00SAP_ProjectOverview_CObjectPage"
+        }
+      ],
+      "targets": {
+        "Z00SAP_ProjectOverview_CList": {
+          "type": "Component",
+          "id": "Z00SAP_ProjectOverview_CList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Z00SAP_ProjectOverview_C",
+              "variantManagement": "Page",
+              "navigation": {
+                "Z00SAP_ProjectOverview_C": {
+                  "detail": {
+                    "route": "Z00SAP_ProjectOverview_CObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  },
+                  "actions": {
+                    "Open_Projects_Logging": {
+                      "press": "zm086.uccmproove086.ext.controller.Button_Handlers.projectsLogging",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Projects Logs",
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "DataFieldForAction::com.sap.gateway.srvd.z00sap_servdef.v0001.deleteProject::com.sap.gateway.srvd.z00sap_servdef.v0001.Z00SAP_ProjectOverview_CType"
+                      }
+                    },
+                    "Tier_Level_Logging": {
+                      "press": "zm086.uccmproove086.ext.controller.Button_Handlers.tierlevelLogging",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Tier Level Logs",
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "Open_Projects_Logging"
+                      }
+                    },
+                    "Extension_Style_Logging": {
+                      "press": "zm086.uccmproove086.ext.controller.Button_Handlers.styleLogging",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Extension Style Logs",
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "Tier_Level_Logging"
+                      }
+                    },
+                    "Extension_Task_Logging": {
+                      "press": "zm086.uccmproove086.ext.controller.Button_Handlers.taskLogging",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Extension Task Logs",
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "Extension_Style_Logging"
+                      }
+                    },
+                    "TBB_Logging": {
+                      "press": "zm086.uccmproove086.ext.controller.Button_Handlers.TBBLogging",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Tech. Building Block Logs",
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "Extension_Task_Logging"
+                      }
+                    },
+                    "ColNames_Logging": {
+                      "press": "zm086.uccmproove086.ext.controller.Button_Handlers.ColNamesLogging",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Column Names Logs",
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "TBB_Logging"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Z00SAP_ProjectOverview_CObjectPage": {
+          "type": "Component",
+          "id": "Z00SAP_ProjectOverview_CObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Z00SAP_ProjectOverview_C",
+              "navigation": {
+                "tbbview": {
+                  "detail": {
+                    "route": "Z00SAP_Projectdetails_C_LessObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "tbbview/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "selectAll": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Z00SAP_Projectdetails_C_LessObjectPage": {
+          "type": "Component",
+          "id": "Z00SAP_Projectdetails_C_LessObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "contextPath": "/Z00SAP_ProjectOverview_C/tbbview",
+              "navigation": {},
+              "editableHeaderContent": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}
