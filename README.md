@@ -39,5 +39,6 @@ An SAP Fiori application.
 #### Pre-requisites:
 
 1. Active NodeJS LTS (Long Term Support) version and associated supported NPM version.  (See https://nodejs.org)
+2. Backend:[https://github.com/AchiTsa/SAP_TUM_AEM_Config/tree/main](url)
 
 
